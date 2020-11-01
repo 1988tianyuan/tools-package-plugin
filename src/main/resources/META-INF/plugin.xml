@@ -1,0 +1,23 @@
+<idea-plugin>
+    <id>com.liugeng.plugins.demo-idea-plugin</id>
+    <name>demo-hello-world</name>
+    <vendor email="1988tianyuan@gmail.com" url="http://mantian.site">1988tianyuan</vendor>
+
+    <description>simple hello world demo just for exercise</description>
+
+    <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
+         on how to target different products -->
+    <depends>com.intellij.modules.platform</depends>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <!-- Add your extensions here -->
+    </extensions>
+
+    <actions>
+        <!-- Add your actions here -->
+        <action id="demo.hello.world" class="com.liugeng.plugin.demoplugin.DemoPluginHello" text="HelloWorld"
+                description="say hello world by plugin">
+            <add-to-group group-id="EditMenu" anchor="last"/>
+        </action>
+    </actions>
+</idea-plugin>
