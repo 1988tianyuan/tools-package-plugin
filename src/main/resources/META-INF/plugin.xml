@@ -9,15 +9,36 @@
          on how to target different products -->
     <depends>com.intellij.modules.platform</depends>
 
-    <extensions defaultExtensionNs="com.intellij">
-        <!-- Add your extensions here -->
-    </extensions>
-
     <actions>
+        <!-- 定义一个单独的action -->
         <!-- Add your actions here -->
-        <action id="demo.hello.world" class="com.liugeng.plugin.demoplugin.DemoPluginHello" text="HelloWorld"
-                description="say hello world by plugin">
-            <add-to-group group-id="EditMenu" anchor="last"/>
-        </action>
+<!--        <action id="demo.hello.world" class="com.liugeng.plugin.demoplugin.actions.DemoPluginHello" text="HelloWorld"-->
+<!--                description="Say hello world by plugin">-->
+<!--            &lt;!&ndash; 讲action添加到Edit菜单栏 &ndash;&gt;-->
+<!--            <add-to-group group-id="EditMenu" anchor="last"/>-->
+<!--        </action>-->
+        <!-- 注册一个action group，会展示到IDEA的菜单栏 -->
+        <group id="DemoGroup" text="测试菜单栏" description="Test demo menu">
+            <!-- 将当前group注册到MainMenu（即主菜单栏）中 -->
+            <add-to-group group-id="MainMenu" anchor="last"/>
+            <!-- 将一个action注册到当前group -->
+            <action id="demo.hello.world" class="com.liugeng.plugin.demoplugin.actions.DemoPluginHello" text="HelloWorld"
+                    description="Say hello world by plugin"/>
+            <action id="demo.input.action" class="com.liugeng.plugin.demoplugin.actions.DemoInputAction"
+                    text="DemoInput" description="The demo action that input word and persist it"/>
+        </group>
+
     </actions>
+    <!-- 注册项目级别的component -->
+    <project-components>
+        <component>
+            <implementation-class>com.liugeng.plugin.demoplugin.components.DemoProjectComponent</implementation-class>
+        </component>
+    </project-components>
+    <!-- 注册扩展，默认对com.intellij（即IDEA本身）进行扩展 -->
+    <extensions defaultExtensionNs="com.intellij">
+        <!-- 注册项目级别的service -->
+        <projectService serviceImplementation="com.liugeng.plugin.demoplugin.services.DemoProjectService"/>
+        <projectService serviceImplementation="com.liugeng.plugin.demoplugin.services.KVService"/>
+    </extensions>
 </idea-plugin>
