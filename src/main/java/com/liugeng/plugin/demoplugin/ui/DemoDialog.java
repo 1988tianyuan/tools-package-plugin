@@ -1,4 +1,4 @@
-package com.liugeng.plugin.demoplugin;
+package com.liugeng.plugin.demoplugin.ui;
 
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.ui.DialogWrapper;
