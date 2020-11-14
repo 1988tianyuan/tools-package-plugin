@@ -34,5 +34,7 @@
         <!-- 注册项目级别的service -->
         <projectService serviceImplementation="com.liugeng.plugin.demoplugin.services.DemoProjectService"/>
         <projectService serviceImplementation="com.liugeng.plugin.demoplugin.services.KVService"/>
+        <toolWindow id="ToolPackages" anchor="right"
+                    factoryClass="com.liugeng.plugin.demoplugin.toolwindow.ToolPackagesWindowFactory"/>
     </extensions>
 </idea-plugin>
